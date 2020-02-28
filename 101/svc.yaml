@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: simple-svc
+  labels:
+    app: simple-svc
+spec:
+  type: NodePort
+  ports:
+    - name: http
+      port: 4000
+      targetPort: 4000
+  selector:
+    app: simple-app

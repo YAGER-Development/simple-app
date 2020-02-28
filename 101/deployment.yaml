@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-app
+  labels:
+    app: simple-app
+spec:
+  selector:
+    matchLabels:
+      app: simple-app
+  template:
+    metadata:
+      labels:
+        app: simple-app
+    spec:
+      containers:
+        - name: simple-app
+          imagePullPolicy: Never
+          image: local-machine/backend/simple-app
+          ports:
+            - name: http
+              containerPort: 4000
+          env:
+            - name: DEMO_ENV
+              value: "Hey this is just a simple demo env var"
